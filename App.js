@@ -48,6 +48,9 @@ function HomeScreen({ navigation }) {
           Your Personalized Skincare Companion! Discover the secrets to radiant and healthy skin right at your fingertips.</Text>
       </View>
       <View style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.button} >
+          <Text style={styles.buttonText}>Profile</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.buttonText}>Home</Text>
         </TouchableOpacity>
