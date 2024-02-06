@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity  } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import CameraScreen from './Camera';
 import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
+import ProfileScreen from './profile';
+
 const Stack = createStackNavigator();
 
 import { useNavigation } from '@react-navigation/native';
@@ -17,13 +19,14 @@ export default function App() {
           name="Home" 
           component={HomeScreen}
           options={{
-            title: 'Home',
+            title: 'Home', 
             headerRight: () => <LoginButton />,
           }}
         />
         <Stack.Screen name="Camera" component={CameraScreen} options={{title: 'Camera',}}/>
         <Stack.Screen name="Login" component={LoginScreen} options={{title: 'Login',}}/>
         <Stack.Screen name="Register" component={RegisterScreen} options={{ title: 'Register' }} />
+        <Stack.Screen name="Profile" component={ProfileScreen} options={{title: 'Profile'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -48,7 +51,7 @@ function HomeScreen({ navigation }) {
           Your Personalized Skincare Companion! Discover the secrets to radiant and healthy skin right at your fingertips.</Text>
       </View>
       <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} >
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
           <Text style={styles.buttonText}>Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#f0ffff',
+    backgroundColor:'#fff8dc',
   },
   buttonContainer: {
     flexDirection: 'row',
